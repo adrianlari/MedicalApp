@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MedicalApp.ViewModels"
+             xmlns:models="clr-namespace:MedicalApp.Models"
+             x:Class="MedicalApp.Views.AppointmentsPage"
+             x:DataType="viewmodels:AppointmentsViewModel"
+             Title="Appointments">
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="10">
+        
+        <!-- Loading Indicator -->
+        <ActivityIndicator Grid.Row="0" 
+                          IsRunning="{Binding IsLoading}"
+                          IsVisible="{Binding IsLoading}"
+                          Color="{StaticResource Primary}"
+                          Margin="0,10"/>
+
+        <!-- Appointments List -->
+        <CollectionView Grid.Row="1"
+                       ItemsSource="{Binding Appointments}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Appointment">
+                    <Frame Margin="5,5" 
+                           Padding="15"
+                           BackgroundColor="White"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*,Auto">
+                            
+                            <!-- Patient Name -->
+                            <Label Grid.Row="0" Grid.Column="0"
+                                   Text="{Binding Patient.FullName}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"/>
+
+                            <!-- Status Badge -->
+                            <Frame Grid.Row="0" Grid.Column="1"
+                                   BackgroundColor="{StaticResource Tertiary}"
+                                   Padding="10,5"
+                                   CornerRadius="12">
+                                <Label Text="{Binding Status}"
+                                       TextColor="White"
+                                       FontSize="12"
+                                       FontAttributes="Bold"/>
+                            </Frame>
+
+                            <!-- Doctor & Specialty -->
+                            <HorizontalStackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Spacing="5" Margin="0,5,0,0">
+                                <Label Text="&#xf0f0;"
+                                       FontFamily="FontAwesome"
+                                       TextColor="{StaticResource Primary}"
+                                       FontSize="14"
+                                       VerticalOptions="Center"/>
+                                <Label Text="{Binding DoctorName}"
+                                       FontSize="14"
+                                       TextColor="{StaticResource Gray900}"/>
+                                <Label Text="-"
+                                       FontSize="14"
+                                       TextColor="{StaticResource Gray600}"/>
+                                <Label Text="{Binding Specialty}"
+                                       FontSize="14"
+                                       TextColor="{StaticResource Gray600}"/>
+                            </HorizontalStackLayout>
+
+                            <!-- Date & Time -->
+                            <HorizontalStackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Spacing="5" Margin="0,5,0,0">
+                                <Label Text="&#xf017;"
+                                       FontFamily="FontAwesome"
+                                       TextColor="{StaticResource Secondary}"
+                                       FontSize="14"
+                                       VerticalOptions="Center"/>
+                                <Label Text="{Binding DateTime, StringFormat='{0:MMM dd, yyyy - hh:mm tt}'}"
+                                       FontSize="14"
+                                       TextColor="{StaticResource Gray900}"/>
+                            </HorizontalStackLayout>
+
+                            <!-- Reason -->
+                            <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                   Text="{Binding Reason}"
+                                   FontSize="14"
+                                   TextColor="{StaticResource Gray600}"
+                                   Margin="0,5,0,0"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Book Appointment Button -->
+        <Button Grid.Row="2"
+                Text="Book New Appointment"
+                Command="{Binding BookAppointmentCommand}"
+                BackgroundColor="{StaticResource Primary}"
+                TextColor="White"
+                CornerRadius="25"
+                HeightRequest="50"
+                Margin="10"/>
+    </Grid>
+</ContentPage>
