@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375" height="812" xmlns="http://www.w3.org/2000/svg">
+  <!-- Phone Frame -->
+  <rect width="375" height="812" fill="#f5f5f5"/>
+  
+  <!-- Status Bar -->
+  <rect width="375" height="44" fill="#2196F3"/>
+  <text x="187.5" y="30" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">9:41</text>
+  
+  <!-- Header -->
+  <rect y="44" width="375" height="60" fill="#2196F3"/>
+  <text x="187.5" y="80" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" font-weight="bold">Dashboard</text>
+  
+  <!-- Content Area -->
+  <rect y="104" width="375" height="708" fill="#f5f5f5"/>
+  
+  <!-- App Title -->
+  <text x="187.5" y="140" font-family="Arial, sans-serif" font-size="28" fill="#2196F3" text-anchor="middle" font-weight="bold">MedConnect</text>
+  <text x="187.5" y="165" font-family="Arial, sans-serif" font-size="14" fill="#757575" text-anchor="middle">Medical Management System</text>
+  
+  <!-- Dashboard Cards Row 1 -->
+  <!-- Total Patients Card -->
+  <rect x="20" y="200" width="160" height="130" rx="10" fill="#2196F3" filter="url(#shadow)"/>
+  <text x="100" y="240" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle">👥</text>
+  <text x="100" y="285" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">2</text>
+  <text x="100" y="310" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Total Patients</text>
+  
+  <!-- Today's Appointments Card -->
+  <rect x="195" y="200" width="160" height="130" rx="10" fill="#4CAF50" filter="url(#shadow)"/>
+  <text x="275" y="240" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle">📅</text>
+  <text x="275" y="285" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">0</text>
+  <text x="275" y="310" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Today</text>
+  
+  <!-- Upcoming Appointments Card -->
+  <rect x="20" y="345" width="335" height="80" rx="10" fill="#FF9800" filter="url(#shadow)"/>
+  <text x="50" y="395" font-family="Arial, sans-serif" font-size="32" fill="white">📆</text>
+  <text x="110" y="385" font-family="Arial, sans-serif" font-size="28" fill="white" font-weight="bold">2</text>
+  <text x="110" y="405" font-family="Arial, sans-serif" font-size="12" fill="white">Upcoming Appointments</text>
+  
+  <!-- Quick Actions Section -->
+  <text x="20" y="460" font-family="Arial, sans-serif" font-size="18" fill="#212121" font-weight="bold">Quick Actions</text>
+  
+  <!-- Button 1: View All Patients -->
+  <rect x="20" y="475" width="335" height="50" rx="10" fill="#2196F3" filter="url(#shadow)"/>
+  <text x="187.5" y="505" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">View All Patients</text>
+  
+  <!-- Button 2: View Appointments -->
+  <rect x="20" y="535" width="335" height="50" rx="10" fill="#4CAF50" filter="url(#shadow)"/>
+  <text x="187.5" y="565" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">View Appointments</text>
+  
+  <!-- Button 3: Book New Appointment -->
+  <rect x="20" y="595" width="335" height="50" rx="10" fill="#FF9800" filter="url(#shadow)"/>
+  <text x="187.5" y="625" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">Book New Appointment</text>
+  
+  <!-- Bottom Navigation Bar -->
+  <rect y="712" width="375" height="100" fill="white" filter="url(#shadow-top)"/>
+  <g>
+    <!-- Dashboard Tab (Active) -->
+    <rect x="0" y="712" width="125" height="4" fill="#2196F3"/>
+    <text x="62.5" y="745" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🏠</text>
+    <text x="62.5" y="765" font-family="Arial, sans-serif" font-size="11" fill="#2196F3" text-anchor="middle" font-weight="600">Dashboard</text>
+    
+    <!-- Patients Tab -->
+    <text x="187.5" y="745" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" opacity="0.5">👥</text>
+    <text x="187.5" y="765" font-family="Arial, sans-serif" font-size="11" fill="#757575" text-anchor="middle">Patients</text>
+    
+    <!-- Appointments Tab -->
+    <text x="312.5" y="745" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" opacity="0.5">📅</text>
+    <text x="312.5" y="765" font-family="Arial, sans-serif" font-size="11" fill="#757575" text-anchor="middle">Appointments</text>
+  </g>
+  
+  <!-- Shadow Filter -->
+  <defs>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow-top" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="-2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
